@@ -25,4 +25,6 @@ export interface Project {
   imagePath: string
   /** Alt text for the project image */
   imageAlt: string
+  /** Optional URL to published research paper or academic publication */
+  paperUrl?: string
 }

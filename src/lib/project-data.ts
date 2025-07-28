@@ -1,84 +1,167 @@
 /**
  * @file project-data.ts
  * @description Static project data for the portfolio showcase.
- * @summary This file contains the hardcoded array of projects displayed
- * in the portfolio. During Phase 4, this could be moved to a CMS or API,
- * but for the MVP it serves as a manageable data source.
+ * @summary This file contains the ranked array of AI-first projects displayed
+ * in the portfolio. Projects are ordered by AI impressiveness, technical depth,
+ * and relevance to AI-First Software Engineer branding.
  */
 
 import { Project } from '@/lib/types'
 
 /**
- * Array of portfolio projects to showcase.
- * Each project represents a curated GitHub repository with complete metadata.
+ * Array of portfolio projects to showcase, ranked by AI-first impressiveness.
+ * Each project represents a curated repository demonstrating advanced AI integration,
+ * sophisticated technical architecture, and real-world impact.
  */
 export const projects: Project[] = [
+  /** 
+   * #1 - TradeFlow AI Mobile: AI-driven mobile optimization leader
+   * Showcases GPT-4o spatial reasoning, 2-step edge function architecture,
+   * and sophisticated business workflow automation.
+   */
   {
-    id: 'ai-chat-app',
-    title: 'AI Chat Application',
+    id: 'tradeflow-ai-mobile',
+    title: 'TradeFlow AI Mobile',
     description:
-      'A modern chat application powered by OpenAI GPT models with real-time messaging, conversation history, and customizable AI personas. Built to explore the intersection of AI and human communication.',
-    techStack: [
-      'Next.js',
-      'TypeScript',
-      'OpenAI API',
-      'Tailwind CSS',
-      'Prisma',
-      'PostgreSQL',
-    ],
-    demoUrl: 'https://ai-chat-demo.vercel.app',
-    repoUrl: 'https://github.com/jeremiahcandelaria/ai-chat-app',
-    imagePath: '/projects/ai-chat-app.jpg',
-    imageAlt:
-      'AI Chat Application interface showing conversation with AI assistant',
-  },
-  {
-    id: 'task-automation-platform',
-    title: 'Task Automation Platform',
-    description:
-      'A workflow automation tool that connects various APIs and services to streamline repetitive tasks. Features a visual flow builder and supports complex conditional logic for business process automation.',
-    techStack: [
-      'React',
-      'Node.js',
-      'Express',
-      'MongoDB',
-      'Docker',
-      'AWS Lambda',
-    ],
-    demoUrl: 'https://automation-platform-demo.com',
-    repoUrl: 'https://github.com/jeremiahcandelaria/task-automation',
-    imagePath: '/projects/automation-platform.jpg',
-    imageAlt:
-      'Task automation platform dashboard with workflow builder interface',
-  },
-  {
-    id: 'data-visualization-dashboard',
-    title: 'Real-time Analytics Dashboard',
-    description:
-      'Interactive dashboard for visualizing complex datasets with real-time updates. Supports multiple chart types, custom filters, and data export functionality for business intelligence applications.',
-    techStack: ['Vue.js', 'D3.js', 'Python', 'FastAPI', 'Redis', 'WebSockets'],
-    demoUrl: 'https://analytics-dashboard-demo.netlify.app',
-    repoUrl: 'https://github.com/jeremiahcandelaria/analytics-dashboard',
-    imagePath: '/projects/analytics-dashboard.jpg',
-    imageAlt:
-      'Analytics dashboard showing various charts and real-time data visualizations',
-  },
-  {
-    id: 'mobile-fitness-tracker',
-    title: 'Mobile Fitness Tracker',
-    description:
-      'Cross-platform mobile application for tracking workouts, nutrition, and health metrics. Includes social features, progress analytics, and integration with popular fitness devices and apps.',
+      'AI-powered mobile application that revolutionizes service workflow optimization using GPT-4o spatial reasoning. Features intelligent job prioritization, automated inventory analysis, and dynamic route optimization through a sophisticated 2-step edge function architecture. Transforms complex business logistics into streamlined, AI-driven workflows.',
     techStack: [
       'React Native',
+      'TypeScript', 
+      'Supabase',
+      'OpenAI GPT-4o',
       'Expo',
-      'Firebase',
-      'TypeScript',
-      'Redux Toolkit',
+      'TanStack Query',
     ],
-    demoUrl: 'https://fitness-tracker-demo.expo.dev',
-    repoUrl: 'https://github.com/jeremiahcandelaria/fitness-tracker',
-    imagePath: '/projects/fitness-tracker.jpg',
+    demoUrl: 'https://github.com/tradeflow-ai/mobile#demo',
+    repoUrl: 'https://github.com/tradeflow-ai/mobile',
+    imagePath: '/projects/tradeflow-ai-mobile.jpg',
     imageAlt:
-      'Mobile fitness tracker app showing workout logging and progress charts',
+      'TradeFlow AI Mobile interface showing AI-optimized job prioritization and route optimization dashboard',
+  },
+
+  /** 
+   * #2 - Word Rush: Real-time UX mastery with competitive multiplayer
+   * Demonstrates advanced Socket.io synchronization, Phaser 3 game mechanics,
+   * and AI-first development philosophy.
+   */
+  {
+    id: 'word-rush',
+    title: 'Word Rush',
+    description:
+      'Real-time competitive multiplayer word game that combines strategic depth with addictive, polished feedback loops. Built with AI-first development philosophy, featuring seamless Socket.io real-time synchronization and "juicy" game mechanics powered by Phaser 3. Demonstrates mastery of modern real-time web architecture and engaging user experience design.',
+    techStack: [
+      'React',
+      'Phaser 3', 
+      'Socket.io',
+      'TypeScript',
+      'Node.js',
+      'Express',
+    ],
+    demoUrl: 'https://github.com/imjeremiah/word-rush#demo',
+    repoUrl: 'https://github.com/imjeremiah/word-rush',
+    imagePath: '/projects/word-rush.jpg',
+    imageAlt:
+      'Word Rush game interface showing real-time multiplayer word game with competitive scoring and social features',
+  },
+
+  /** 
+   * #3 - Essay Elevate: NLP excellence with specialized AI writing coaches
+   * Features 6 AI-powered writing assistants using OpenAI GPT-4o for
+   * sophisticated text analysis and academic improvement.
+   */
+  {
+    id: 'essay-elevate',
+    title: 'Essay Elevate',
+    description:
+      'AI-powered writing assistant that transforms student writing through sophisticated NLP analysis. Features 6 specialized AI coaches including thesis evolution, evidence integration, and critical thinking prompting using OpenAI GPT-4o. Goes beyond grammar checking to provide deep structural feedback on argument sophistication and academic voice development.',
+    techStack: [
+      'Next.js',
+      'OpenAI GPT-4o',
+      'Supabase',
+      'TypeScript', 
+      'Tailwind CSS',
+      'Shadcn/ui',
+    ],
+    demoUrl: 'https://essay-elevate.vercel.app',
+    repoUrl: 'https://github.com/imjeremiah/essay-elevate',
+    imagePath: '/projects/essay-elevate.jpg',
+    imageAlt:
+      'Essay Elevate interface showing AI writing coaches providing real-time feedback on academic writing',
+  },
+
+  /** 
+   * #4 - Doyen Client: Institutional credibility with published research
+   * Commissioned by Harvard and Pfizer, resulted in published paper on
+   * AI-driven expert matching methodologies.
+   */
+  {
+    id: 'doyenclient',
+    title: 'Doyen Client',
+    description:
+      'Professional expert-matching platform commissioned by Harvard and Pfizer for academic and pharmaceutical research collaboration. Features sophisticated search algorithms, expert profiling, and filtering systems to connect researchers with domain specialists. Resulted in published research paper on AI-driven expert matching methodologies, demonstrating real-world impact in institutional research environments.',
+    techStack: [
+      'Next.js',
+      'React',
+      'Firebase',
+      'Tailwind CSS',
+      'Cypress',
+      'JavaScript',
+    ],
+    demoUrl: 'https://doyenapp.org',
+    repoUrl: 'https://github.com/DoyenTeam/doyenclient',
+    imagePath: '/projects/doyenclient.jpg',
+    imageAlt:
+      'Doyen Client platform interface showing expert search and matching system for Harvard and Pfizer research',
+    paperUrl: 'placeholder-for-published-paper-url',
+  },
+
+  /** 
+   * #5 - Dry Prompt: Niche AI innovation with desktop automation
+   * Features LangGraph.js workflow orchestration, DBSCAN clustering,
+   * and native macOS integration for intelligent productivity automation.
+   */
+  {
+    id: 'dry-prompt',
+    title: 'Dry Prompt',
+    description:
+      'AI-powered macOS desktop application that revolutionizes productivity through intelligent typing habit analysis. Uses LangGraph.js workflow orchestration and DBSCAN clustering to automatically identify repetitive text patterns, then creates native macOS keyboard shortcuts. Features advanced privacy protection with macOS Keychain integration and seamless system-level automation.',
+    techStack: [
+      'Electron',
+      'LangGraph.js',
+      'OpenAI GPT-4',
+      'TypeScript',
+      'Supabase',
+      'DBSCAN Clustering',
+    ],
+    demoUrl: 'https://github.com/imjeremiah/dry-prompt#demo',
+    repoUrl: 'https://github.com/imjeremiah/dry-prompt',
+    imagePath: '/projects/dry-prompt.jpg',
+    imageAlt:
+      'Dry Prompt desktop application showing AI-powered keyboard shortcut generation and system tray integration',
+  },
+
+  /** 
+   * #6 - Foodie Snap: ML variety with computer vision and RAG
+   * Demonstrates multiple ML disciplines including computer vision,
+   * semantic search with pgvector, and personalized AI recommendations.
+   */
+  {
+    id: 'foodie-snap',
+    title: 'Foodie Snap',
+    description:
+      'AI-first mobile application combining social media with intelligent nutrition tracking through cutting-edge Retrieval-Augmented Generation (RAG). Features computer vision food scanning, semantic search with pgvector embeddings, AI caption generation, and personalized health insights. Demonstrates mastery of modern ML techniques including computer vision, NLP, and recommendation systems in a polished mobile experience.',
+    techStack: [
+      'React Native',
+      'OpenAI GPT-4o',
+      'pgvector (RAG)',
+      'Expo',
+      'Supabase',
+      'TypeScript',
+    ],
+    demoUrl: 'https://github.com/imjeremiah/foodie-snap#demo',
+    repoUrl: 'https://github.com/imjeremiah/foodie-snap',
+    imagePath: '/projects/foodie-snap.jpg',
+    imageAlt:
+      'Foodie Snap mobile app showing AI-powered food scanning, nutrition analysis, and social sharing features',
   },
 ]
