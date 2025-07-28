@@ -31,3 +31,7 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts 
+
+# Project files to ignore
+checklist.md
+_docs/ 
