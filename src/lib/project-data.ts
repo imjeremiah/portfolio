@@ -112,7 +112,7 @@ export const projects: Project[] = [
     imagePath: '/projects/doyenclient.jpg',
     imageAlt:
       'Doyen Client platform interface showing expert search and matching system for Harvard and Pfizer research',
-    paperUrl: 'placeholder-for-published-paper-url',
+    paperUrl: 'https://drive.google.com/file/d/12FPRBoGVmuVGrXBe_PZr3pj7LugbwBrT/view',
   },
 
   /** 

@@ -94,27 +94,6 @@ export function AboutSection() {
             </AnimatedSection>
           </div>
         </div>
-
-        {/* Stats or achievements */}
-        <AnimatedSection animation="dramatic" delay={1.0}>
-          <div className="mt-32 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { number: '50+', label: 'Projects Built' },
-              { number: '5+', label: 'Years Experience' },
-              { number: '99%', label: 'Client Satisfaction' },
-              { number: '24/7', label: 'Learning Mode' }
-            ].map((stat, index) => (
-              <div key={index} className="space-y-2">
-                <div className="text-4xl md:text-5xl font-black text-accent-blue">
-                  {stat.number}
-                </div>
-                <div className="text-sm uppercase tracking-wider text-subtle-gray">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   )

@@ -10,6 +10,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect } from 'react'
 
+type ModalType = 'demo' | 'code' | 'paper'
+
 interface DemoModalProps {
   /** Whether the modal is open */
   isOpen: boolean
@@ -17,34 +19,55 @@ interface DemoModalProps {
   onClose: () => void
   /** Project title for the modal header */
   title: string
-  /** Demo URL to embed */
-  demoUrl: string
+  /** Content URL to embed */
+  contentUrl: string
+  /** Type of content being displayed */
+  type: ModalType
 }
 
 /**
- * Converts various demo URLs to embeddable formats
+ * Converts various URLs to embeddable formats based on content type
  */
-function getEmbedUrl(url: string): string {
-  // Loom video URLs
-  if (url.includes('loom.com/share/')) {
-    const videoId = url.split('/').pop()?.split('?')[0]
-    return `https://www.loom.com/embed/${videoId}`
-  }
-  
-  // Google Slides URLs
-  if (url.includes('docs.google.com/presentation')) {
-    // Extract presentation ID and convert to embed format
-    const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/)
-    if (match) {
-      return `https://docs.google.com/presentation/d/${match[1]}/embed?start=false&loop=false&delayms=3000`
+function getEmbedUrl(url: string, type: ModalType): string {
+  if (type === 'demo') {
+    // Loom video URLs
+    if (url.includes('loom.com/share/')) {
+      const videoId = url.split('/').pop()?.split('?')[0]
+      return `https://www.loom.com/embed/${videoId}`
+    }
+    
+    // Google Slides URLs
+    if (url.includes('docs.google.com/presentation')) {
+      const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/)
+      if (match) {
+        return `https://docs.google.com/presentation/d/${match[1]}/embed?start=false&loop=false&delayms=3000`
+      }
+    }
+    
+    // Google Drive URLs
+    if (url.includes('drive.google.com/file')) {
+      const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/)
+      if (match) {
+        return `https://drive.google.com/file/d/${match[1]}/preview`
+      }
     }
   }
   
-  // Google Drive URLs
-  if (url.includes('drive.google.com/file')) {
-    const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/)
-    if (match) {
-      return `https://drive.google.com/file/d/${match[1]}/preview`
+  if (type === 'code') {
+    // GitHub repository URLs - embed the repo
+    if (url.includes('github.com')) {
+      // Use GitHub's embed format or just load the repo directly
+      return url
+    }
+  }
+  
+  if (type === 'paper') {
+    // Google Drive research papers
+    if (url.includes('drive.google.com/file')) {
+      const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/)
+      if (match) {
+        return `https://drive.google.com/file/d/${match[1]}/preview`
+      }
     }
   }
   
@@ -53,10 +76,44 @@ function getEmbedUrl(url: string): string {
 }
 
 /**
- * Modal component for displaying project demos with beautiful animations
+ * Gets the appropriate modal title based on content type
  */
-export function DemoModal({ isOpen, onClose, title, demoUrl }: DemoModalProps) {
-  const embedUrl = getEmbedUrl(demoUrl)
+function getModalTitle(title: string, type: ModalType): string {
+  switch (type) {
+    case 'demo':
+      return `${title} Demo`
+    case 'code':
+      return `${title} Code`
+    case 'paper':
+      return `${title} Research Paper`
+    default:
+      return `${title} Demo`
+  }
+}
+
+/**
+ * Gets the appropriate footer text based on content type
+ */
+function getFooterText(type: ModalType): string {
+  switch (type) {
+    case 'demo':
+      return 'Open in new tab'
+    case 'code':
+      return 'Open in GitHub'
+    case 'paper':
+      return 'Open full paper'
+    default:
+      return 'Open in new tab'
+  }
+}
+
+/**
+ * Modal component for displaying project content with beautiful animations
+ */
+export function DemoModal({ isOpen, onClose, title, contentUrl, type }: DemoModalProps) {
+  const embedUrl = getEmbedUrl(contentUrl, type)
+  const modalTitle = getModalTitle(title, type)
+  const footerText = getFooterText(type)
 
   // Handle escape key
   useEffect(() => {
@@ -100,7 +157,7 @@ export function DemoModal({ isOpen, onClose, title, demoUrl }: DemoModalProps) {
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  {title} Demo
+                  {modalTitle}
                 </h2>
                 <button
                   onClick={onClose}
@@ -119,13 +176,13 @@ export function DemoModal({ isOpen, onClose, title, demoUrl }: DemoModalProps) {
               </div>
 
               {/* Content */}
-              <div className="relative" style={{ paddingBottom: '56.25%', height: 0 }}>
+              <div className="relative" style={{ paddingBottom: type === 'code' ? '75%' : '56.25%', height: 0 }}>
                 <iframe
                   src={embedUrl}
                   className="absolute top-0 left-0 w-full h-full border-0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  title={`${title} Demo`}
+                  title={modalTitle}
                 />
               </div>
 
@@ -136,12 +193,12 @@ export function DemoModal({ isOpen, onClose, title, demoUrl }: DemoModalProps) {
                     Press <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-xs">Esc</kbd> to close
                   </p>
                   <a
-                    href={demoUrl}
+                    href={contentUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-accent-blue hover:text-blue-600 font-medium text-sm transition-colors"
                   >
-                    Open in new tab →
+                    {footerText} →
                   </a>
                 </div>
               </div>
