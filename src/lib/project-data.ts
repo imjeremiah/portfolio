@@ -32,7 +32,7 @@ export const projects: Project[] = [
       'Expo',
       'TanStack Query',
     ],
-    demoUrl: 'https://github.com/tradeflow-ai/mobile#demo',
+    demoUrl: 'https://docs.google.com/presentation/d/1NllK48niln0D-ASrWC82_SYy362wuMv0ZQD-wUkEK1M/edit?slide=id.g344ba1186e2_0_1#slide=id.g344ba1186e2_0_1',
     repoUrl: 'https://github.com/tradeflow-ai/mobile',
     imagePath: '/projects/tradeflow-ai-mobile.jpg',
     imageAlt:
@@ -57,7 +57,7 @@ export const projects: Project[] = [
       'Node.js',
       'Express',
     ],
-    demoUrl: 'https://github.com/imjeremiah/word-rush#demo',
+    demoUrl: 'https://www.loom.com/share/9d8ce7586b6745b9b6c501f6a4f42534',
     repoUrl: 'https://github.com/imjeremiah/word-rush',
     imagePath: '/projects/word-rush.jpg',
     imageAlt:
@@ -82,7 +82,7 @@ export const projects: Project[] = [
       'Tailwind CSS',
       'Shadcn/ui',
     ],
-    demoUrl: 'https://essay-elevate.vercel.app',
+    demoUrl: 'https://www.loom.com/share/513ce55539034f23857e07992475b5ba',
     repoUrl: 'https://github.com/imjeremiah/essay-elevate',
     imagePath: '/projects/essay-elevate.jpg',
     imageAlt:
@@ -107,7 +107,7 @@ export const projects: Project[] = [
       'Cypress',
       'JavaScript',
     ],
-    demoUrl: 'https://doyenapp.org',
+    demoUrl: 'https://drive.google.com/file/d/1rYCxKMJS3DFBz9bhGxr7onma9NpWbByU/view',
     repoUrl: 'https://github.com/DoyenTeam/doyenclient',
     imagePath: '/projects/doyenclient.jpg',
     imageAlt:
@@ -133,7 +133,7 @@ export const projects: Project[] = [
       'Supabase',
       'DBSCAN Clustering',
     ],
-    demoUrl: 'https://github.com/imjeremiah/dry-prompt#demo',
+    demoUrl: 'https://www.loom.com/share/3a4f19a51c1948318db60b1d3638a03f',
     repoUrl: 'https://github.com/imjeremiah/dry-prompt',
     imagePath: '/projects/dry-prompt.jpg',
     imageAlt:
@@ -158,7 +158,7 @@ export const projects: Project[] = [
       'Supabase',
       'TypeScript',
     ],
-    demoUrl: 'https://github.com/imjeremiah/foodie-snap#demo',
+    demoUrl: 'https://www.loom.com/share/61acc8eef5ff425e81cafe093fde98f8',
     repoUrl: 'https://github.com/imjeremiah/foodie-snap',
     imagePath: '/projects/foodie-snap.jpg',
     imageAlt:
