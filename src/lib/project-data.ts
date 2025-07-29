@@ -21,7 +21,7 @@ export const projects: Project[] = [
    */
   {
     id: 'tradeflow-ai-mobile',
-    title: 'TradeFlow AI Mobile',
+    title: 'TradeFlow AI',
     description:
       'AI-powered mobile application that revolutionizes service workflow optimization using GPT-4o spatial reasoning. Features intelligent job prioritization, automated inventory analysis, and dynamic route optimization through a sophisticated 2-step edge function architecture. Transforms complex business logistics into streamlined, AI-driven workflows.',
     techStack: [
@@ -30,7 +30,6 @@ export const projects: Project[] = [
       'Supabase',
       'OpenAI GPT-4o',
       'Expo',
-      'TanStack Query',
     ],
     demoUrl: 'https://docs.google.com/presentation/d/1NllK48niln0D-ASrWC82_SYy362wuMv0ZQD-wUkEK1M/edit?slide=id.g344ba1186e2_0_1#slide=id.g344ba1186e2_0_1',
     repoUrl: 'https://github.com/tradeflow-ai/mobile',
@@ -50,12 +49,11 @@ export const projects: Project[] = [
     description:
       'Real-time competitive multiplayer word game that combines strategic depth with addictive, polished feedback loops. Built with AI-first development philosophy, featuring seamless Socket.io real-time synchronization and "juicy" game mechanics powered by Phaser 3. Demonstrates mastery of modern real-time web architecture and engaging user experience design.',
     techStack: [
-      'React',
       'Phaser 3', 
       'Socket.io',
       'TypeScript',
+      'React',
       'Node.js',
-      'Express',
     ],
     demoUrl: 'https://www.loom.com/share/9d8ce7586b6745b9b6c501f6a4f42534',
     repoUrl: 'https://github.com/imjeremiah/word-rush',
@@ -80,7 +78,6 @@ export const projects: Project[] = [
       'Supabase',
       'TypeScript', 
       'Tailwind CSS',
-      'Shadcn/ui',
     ],
     demoUrl: 'https://www.loom.com/share/513ce55539034f23857e07992475b5ba',
     repoUrl: 'https://github.com/imjeremiah/essay-elevate',
@@ -96,12 +93,11 @@ export const projects: Project[] = [
    */
   {
     id: 'doyenclient',
-    title: 'Doyen Client',
+    title: 'Doyen',
     description:
       'Professional expert-matching platform commissioned by Harvard and Pfizer for academic and pharmaceutical research collaboration. Features sophisticated search algorithms, expert profiling, and filtering systems to connect researchers with domain specialists. Resulted in published research paper on AI-driven expert matching methodologies, demonstrating real-world impact in institutional research environments.',
     techStack: [
       'Next.js',
-      'React',
       'Firebase',
       'Tailwind CSS',
       'Cypress',
@@ -127,11 +123,10 @@ export const projects: Project[] = [
       'AI-powered macOS desktop application that revolutionizes productivity through intelligent typing habit analysis. Uses LangGraph.js workflow orchestration and DBSCAN clustering to automatically identify repetitive text patterns, then creates native macOS keyboard shortcuts. Features advanced privacy protection with macOS Keychain integration and seamless system-level automation.',
     techStack: [
       'Electron',
-      'LangGraph.js',
+      'LangGraph',
       'OpenAI GPT-4',
       'TypeScript',
-      'Supabase',
-      'DBSCAN Clustering',
+      'DBSCAN',
     ],
     demoUrl: 'https://www.loom.com/share/3a4f19a51c1948318db60b1d3638a03f',
     repoUrl: 'https://github.com/imjeremiah/dry-prompt',
@@ -156,7 +151,6 @@ export const projects: Project[] = [
       'pgvector (RAG)',
       'Expo',
       'Supabase',
-      'TypeScript',
     ],
     demoUrl: 'https://www.loom.com/share/61acc8eef5ff425e81cafe093fde98f8',
     repoUrl: 'https://github.com/imjeremiah/foodie-snap',

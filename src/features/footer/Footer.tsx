@@ -43,7 +43,7 @@ export function Footer() {
         {/* Social Links */}
         <div className="mb-8 flex justify-center gap-6">
           <Link
-            href="https://github.com/jeremiahcandelaria"
+            href="https://github.com/imjeremiah"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 text-subtle-gray transition-colors hover:text-accent-blue"
@@ -61,7 +61,7 @@ export function Footer() {
             <LinkedInIcon size={24} />
           </Link>
           <Link
-            href="mailto:jeremiah@jeremiahcandelaria.com"
+            href="mailto:jeremiahcandelaria@gmail.com"
             className="p-3 text-subtle-gray transition-colors hover:text-accent-blue"
             aria-label="Send email"
           >

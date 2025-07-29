@@ -81,6 +81,9 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
             />
+            
+            {/* Blue brand overlay - fades away on hover to show true image colors */}
+            <div className="absolute inset-0 bg-accent-blue/25 opacity-100 group-hover:opacity-0 transition-opacity duration-500 z-[5]" />
           </div>
 
           {/* Floating action buttons */}
@@ -197,10 +200,10 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
           {project.paperUrl && (
             <button
               onClick={() => openModal('paper')}
-              className="group rounded-full border-2 border-purple-500/30 px-8 py-4 font-semibold text-purple-600 dark:text-purple-400 transition-all duration-300 hover:border-purple-500 hover:bg-purple-500/10 hover:scale-105"
+              className="group rounded-full border-2 border-accent-blue/20 px-8 py-4 font-semibold text-accent-blue transition-all duration-300 hover:border-accent-blue hover:bg-accent-blue/10 hover:scale-105"
             >
               <span className="flex items-center justify-center space-x-2">
-                <span>Read Paper</span>
+                <span>View Paper</span>
                 <svg className="w-4 h-4 transition-transform group-hover:translate-y-[-2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
