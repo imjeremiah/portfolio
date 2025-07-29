@@ -10,6 +10,19 @@
 import { motion } from 'framer-motion'
 
 /**
+ * Smooth scroll to projects section
+ */
+function scrollToProjects() {
+  const projectsSection = document.getElementById('projects')
+  if (projectsSection) {
+    projectsSection.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    })
+  }
+}
+
+/**
  * Hero section component with dramatic animations and modern typography.
  */
 export function HeroSection() {
@@ -77,6 +90,7 @@ export function HeroSection() {
             className="pt-8"
           >
             <motion.button
+              onClick={scrollToProjects}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               className="group relative overflow-hidden rounded-full bg-accent-blue px-8 py-4 text-lg font-semibold text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25"
