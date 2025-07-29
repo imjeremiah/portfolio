@@ -10,7 +10,9 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import { Project } from '@/lib/types'
+import { DemoModal } from '@/components/shared/DemoModal'
 
 interface ProjectCardProps {
   /** Project data to display */
@@ -25,7 +27,18 @@ interface ProjectCardProps {
  * Project card component with dramatic hover effects and modern design.
  */
 export function ProjectCard({ project, index, isReversed = false }: ProjectCardProps) {
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
+
   return (
+    <>
+      <DemoModal
+        isOpen={isDemoModalOpen}
+        onClose={() => setIsDemoModalOpen(false)}
+        title={project.title}
+        demoUrl={project.demoUrl}
+      />
+      
+      {/* Project Card */}
     <motion.article
       className={`group relative grid lg:grid-cols-2 gap-12 items-center ${
         isReversed ? 'lg:grid-flow-col-dense' : ''
@@ -60,16 +73,14 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
             whileInView={{ opacity: 1, y: 0 }}
             className="absolute top-6 right-6 flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
           >
-            <Link
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsDemoModalOpen(true)}
               className="p-3 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-sm shadow-lg hover:scale-110 transition-transform"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M15 14h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-            </Link>
+            </button>
             <Link
               href={project.repoUrl}
               target="_blank"
@@ -143,10 +154,8 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
           transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-col sm:flex-row gap-4 pt-4"
         >
-          <Link
-            href={project.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => setIsDemoModalOpen(true)}
             className="group relative overflow-hidden rounded-full bg-accent-blue px-8 py-4 font-semibold text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 hover:scale-105"
           >
             <span className="relative z-10 flex items-center justify-center space-x-2">
@@ -156,7 +165,7 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
                 </svg>
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-accent-blue to-blue-600 transition-transform duration-300 group-hover:scale-105" />
-          </Link>
+          </button>
           
           <Link
             href={project.repoUrl}
@@ -191,5 +200,6 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
         </motion.div>
       </div>
     </motion.article>
+    </>
   )
 }
