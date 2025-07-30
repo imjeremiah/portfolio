@@ -36,34 +36,25 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="space-y-8"
         >
-          {/* Greeting */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-subtle-gray font-medium tracking-wide"
-          >
-            Hi, I'm
-          </motion.div>
-
-          {/* Name with dramatic entrance */}
+          {/* Name with greeting */}
           <motion.h1
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ 
-              duration: 0.8, 
-              delay: 0.4,
+              duration: 0.5, 
+              delay: 0.2,
               type: 'spring',
-              damping: 25,
-              stiffness: 120
+              damping: 20,
+              stiffness: 150
             }}
-            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-none"
+            className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-none"
           >
             <span className="block bg-gradient-to-r from-black via-gray-800 to-black dark:from-white dark:via-gray-200 dark:to-white bg-clip-text text-transparent">
-              Jeremiah
+              <span className="font-semibold">Hi, I'm </span>
+              <span className="font-black">Jeremiah</span>
             </span>
           </motion.h1>
 
@@ -71,7 +62,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
             className="space-y-4"
           >
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-subtle-gray">
@@ -86,7 +77,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
+            transition={{ duration: 0.3, delay: 0.6 }}
             className="pt-8"
           >
             <motion.button
@@ -109,7 +100,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.6 }}
+            transition={{ duration: 0.3, delay: 0.8 }}
             className="pt-16"
           >
             <motion.div
@@ -121,7 +112,7 @@ export function HeroSection() {
                 Scroll to explore
               </span>
               <motion.div
-                animate={{ height: [20, 30, 20] }}
+                animate={{ height: [120, 130, 120] }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                 className="w-px bg-gradient-to-b from-subtle-gray to-transparent"
               />

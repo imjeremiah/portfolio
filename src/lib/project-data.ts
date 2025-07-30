@@ -60,6 +60,7 @@ export const projects: Project[] = [
     imagePath: '/projects/word-rush.jpg',
     imageAlt:
       'Word Rush game interface showing real-time multiplayer word game with competitive scoring and social features',
+    playUrl: 'https://word-rush-client.onrender.com/',
   },
 
   /** 

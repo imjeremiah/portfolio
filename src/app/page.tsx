@@ -7,7 +7,6 @@
  */
 
 import { HeroSection } from '@/features/hero/HeroSection'
-import { AboutSection } from '@/features/about/AboutSection'
 import { ProjectShowcase } from '@/features/project-showcase/ProjectShowcase'
 import { Footer } from '@/features/footer/Footer'
 
@@ -16,9 +15,6 @@ export default function HomePage() {
     <>
       {/* Hero Section - First impression with greeting and tagline */}
       <HeroSection />
-
-      {/* About Section - Personal bio and technical narrative */}
-      <AboutSection />
 
       {/* Project Showcase - Curated collection of work */}
       <ProjectShowcase />

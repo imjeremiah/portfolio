@@ -27,4 +27,6 @@ export interface Project {
   imageAlt: string
   /** Optional URL to published research paper or academic publication */
   paperUrl?: string
+  /** Optional URL to playable game or live application */
+  playUrl?: string
 }

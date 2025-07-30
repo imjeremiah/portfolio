@@ -66,7 +66,7 @@ export function AnimatedSection({
   className = '',
   delay = 0,
   animation = 'dramatic',
-  duration = 0.8,
+  duration = 0.4,
 }: AnimatedSectionProps) {
   const shouldReduceMotion = useReducedMotion()
 
@@ -86,8 +86,8 @@ export function AnimatedSection({
         delay,
         ease: [0.25, 0.46, 0.45, 0.94], // Smooth easing
         type: 'spring',
-        damping: 25,
-        stiffness: 120
+        damping: 20, // Snappier feel
+        stiffness: 200 // More responsive
       }}
     >
       {children}

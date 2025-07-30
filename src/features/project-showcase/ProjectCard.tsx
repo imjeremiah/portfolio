@@ -10,9 +10,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 import { Project } from '@/lib/types'
-import { DemoModal } from '@/components/shared/DemoModal'
 
 interface ProjectCardProps {
   /** Project data to display */
@@ -27,34 +25,16 @@ interface ProjectCardProps {
  * Project card component with dramatic hover effects and modern design.
  */
 export function ProjectCard({ project, index, isReversed = false }: ProjectCardProps) {
-  const [modalState, setModalState] = useState<{
-    isOpen: boolean
-    type: 'demo' | 'code' | 'paper'
-    url: string
-  }>({ isOpen: false, type: 'demo', url: '' })
-
-  const openModal = (type: 'demo' | 'code' | 'paper') => {
+  const openInNewTab = (type: 'demo' | 'code' | 'paper' | 'play') => {
     const url = type === 'demo' ? project.demoUrl : 
                 type === 'code' ? project.repoUrl : 
-                project.paperUrl || ''
-    setModalState({ isOpen: true, type, url })
-  }
-
-  const closeModal = () => {
-    setModalState({ isOpen: false, type: 'demo', url: '' })
+                type === 'paper' ? project.paperUrl || '' :
+                type === 'play' ? project.playUrl || '' : ''
+    
+    window.open(url, '_blank', 'noopener,noreferrer')
   }
 
   return (
-    <>
-      <DemoModal
-        isOpen={modalState.isOpen}
-        onClose={closeModal}
-        title={project.title}
-        contentUrl={modalState.url}
-        type={modalState.type}
-      />
-      
-      {/* Project Card */}
     <motion.article
       className={`group relative grid lg:grid-cols-2 gap-12 items-center ${
         isReversed ? 'lg:grid-flow-col-dense' : ''
@@ -93,7 +73,7 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
             className="absolute top-6 right-6 flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
           >
             <button
-              onClick={() => openModal('demo')}
+              onClick={() => openInNewTab('demo')}
               className="p-3 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-sm shadow-lg hover:scale-110 transition-transform"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +81,7 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
               </svg>
             </button>
             <button
-              onClick={() => openModal('code')}
+              onClick={() => openInNewTab('code')}
               className="p-3 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-sm shadow-lg hover:scale-110 transition-transform"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -118,7 +98,7 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
         <motion.div
           initial={{ opacity: 0, x: isReversed ? 50 : -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
           className="text-6xl md:text-7xl font-black text-accent-blue/20"
         >
           {String(index + 1).padStart(2, '0')}
@@ -128,7 +108,7 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
         <motion.h3
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.3, delay: 0.15 }}
           className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight"
         >
           {project.title}
@@ -138,7 +118,7 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
           className="text-xl md:text-2xl text-subtle-gray leading-relaxed"
         >
           {project.description}
@@ -148,7 +128,7 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.25 }}
           className="flex flex-wrap gap-3"
         >
           {project.techStack.map((tech, techIndex) => (
@@ -156,7 +136,7 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
               key={tech}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.6 + techIndex * 0.1 }}
+              transition={{ duration: 0.2, delay: 0.3 + techIndex * 0.05 }}
               className="px-4 py-2 rounded-full bg-accent-blue/10 text-accent-blue font-medium text-sm border border-accent-blue/20 hover:bg-accent-blue/20 transition-colors"
             >
               {tech}
@@ -168,11 +148,11 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
+          transition={{ duration: 0.3, delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 pt-4"
         >
           <button
-            onClick={() => openModal('demo')}
+            onClick={() => openInNewTab('demo')}
             className="group relative overflow-hidden rounded-full bg-accent-blue px-8 py-4 font-semibold text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 hover:scale-105"
           >
             <span className="relative z-10 flex items-center justify-center space-x-2">
@@ -185,7 +165,7 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
           </button>
           
           <button
-            onClick={() => openModal('code')}
+            onClick={() => openInNewTab('code')}
             className="group rounded-full border-2 border-subtle-gray/30 px-8 py-4 font-semibold text-current transition-all duration-300 hover:border-accent-blue hover:text-accent-blue hover:scale-105"
           >
             <span className="flex items-center justify-center space-x-2">
@@ -199,13 +179,29 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
           {/* Research paper button - conditional for projects with published research */}
           {project.paperUrl && (
             <button
-              onClick={() => openModal('paper')}
+              onClick={() => openInNewTab('paper')}
               className="group rounded-full border-2 border-accent-blue/20 px-8 py-4 font-semibold text-accent-blue transition-all duration-300 hover:border-accent-blue hover:bg-accent-blue/10 hover:scale-105"
             >
               <span className="flex items-center justify-center space-x-2">
-                <span>View Paper</span>
+                <span>Read Paper</span>
                 <svg className="w-4 h-4 transition-transform group-hover:translate-y-[-2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </span>
+            </button>
+          )}
+
+          {/* Play game button - conditional for projects with playable versions */}
+          {project.playUrl && (
+            <button
+              onClick={() => openInNewTab('play')}
+              className="group rounded-full border-2 border-accent-blue/20 px-8 py-4 font-semibold text-accent-blue transition-all duration-300 hover:border-accent-blue hover:bg-accent-blue/10 hover:scale-105"
+            >
+              <span className="flex items-center justify-center space-x-2">
+                <span>Play Game</span>
+                <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="2" y="6" width="20" height="12" rx="2" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}/>
+                  <path d="M6 12h4m4 0h4" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}/>
                 </svg>
               </span>
             </button>
@@ -213,6 +209,5 @@ export function ProjectCard({ project, index, isReversed = false }: ProjectCardP
         </motion.div>
       </div>
     </motion.article>
-    </>
   )
 }
